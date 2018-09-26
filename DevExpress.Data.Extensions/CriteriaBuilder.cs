@@ -382,6 +382,12 @@ namespace DevExpress.Data.Extensions {
                 Result = new FunctionOperator(FunctionOperatorType.GetYear, ExtractOperand(node.Expression));
                 return true;
             }
+            MemberExpression memberExpr = node.Expression as MemberExpression;
+            if (memberExpr != null && memberExpr.Member.MemberType == MemberTypes.Property) {
+                OperandProperty prop = (OperandProperty)ExtractOperand(memberExpr);
+                Result = new OperandProperty(string.Concat(prop.PropertyName, ".", node.Member.Name));
+                return true;
+            }
             return false;
         }
 

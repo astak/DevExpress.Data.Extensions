@@ -12,6 +12,13 @@ namespace DevExpress.Data.Extensions.Tests {
         }
 
         [Test]
+        public void ComplexPropertyTest() {
+            string expected = "[MyReferenceObject.ReferenceObjectName]";
+            string actual = CriteriaBuilder.Build<TestContext, string>(c => c.MyReferenceObject.ReferenceObjectName).ToString();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
         public void ValueTest() {
             string expected = "'test'";
             string actual = CriteriaBuilder.Build<TestContext, string>(c => "test").ToString();
