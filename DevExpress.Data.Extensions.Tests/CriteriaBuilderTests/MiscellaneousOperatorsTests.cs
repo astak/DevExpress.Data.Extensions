@@ -20,6 +20,12 @@ namespace DevExpress.Data.Extensions.Tests {
             string actual = CriteriaBuilder.Build<TestContext, bool>(c => new string[] { "John", "Bob", "Nick" }.Contains(c.Name)).ToString();
             Assert.AreEqual(expected, actual);
         }
+        [Test]
+        public void InTest2() {
+            string expected = "[MyReferenceObject.ReferenceObjectName] In ('John', 'Bob', 'Nick')";
+            string actual = CriteriaBuilder.Build<TestContext, bool>(c => new string[] { "John", "Bob", "Nick" }.Contains(c.MyReferenceObject.ReferenceObjectName)).ToString();
+            Assert.AreEqual(expected, actual);
+        }
 
         [Test]
         public void InConstantTest() {
