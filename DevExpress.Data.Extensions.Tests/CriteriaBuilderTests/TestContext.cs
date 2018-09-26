@@ -18,6 +18,7 @@ namespace DevExpress.Data.Extensions.Tests {
 
     public class ReferenceObject {
         public string ReferenceObjectName { get; set; }
+        public Account Account { get; set; }
     }
 
     public class Account {
