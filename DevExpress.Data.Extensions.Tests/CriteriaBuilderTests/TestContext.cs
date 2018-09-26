@@ -13,6 +13,11 @@ namespace DevExpress.Data.Extensions.Tests {
         public DateTime EndDate { get; set; }
         public List<Account> Accounts {get;} = new List<Account>();
         public List<Order> Orders { get; } = new List<Order>();
+        public ReferenceObject MyReferenceObject { get; set; }
+    }
+
+    public class ReferenceObject {
+        public string ReferenceObjectName { get; set; }
     }
 
     public class Account {
